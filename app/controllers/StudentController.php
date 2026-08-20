@@ -30,6 +30,8 @@ class StudentController extends Controller
             if ($entered_name !== '') {
                 $_SESSION['student_access'] = true;
                 $_SESSION['student_name'] = $entered_name;
+                redirect('student/profile');
+                return;
             }
         }
 
