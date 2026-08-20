@@ -12,7 +12,7 @@ $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --ink:#151515; --paper:#f4f4f4; --accent:#bdbdbd; --accent-gradient:linear-gradient(135deg,#ffffff 0%,#bdbdbd 52%,#555 100%); --soft:#f7f7f7; --muted:#666; --line:#242424; }
-        * { box-sizing:border-box; } body { margin:0; min-height:100vh; color:var(--ink); background:var(--paper); font-family:Manrope,sans-serif; }
+        * { box-sizing:border-box; } body { margin:0; min-height:100vh; color:var(--ink); background:linear-gradient(135deg,#f8f8f8 0%,#d1d1d1 52%,#777 100%); font-family:Manrope,sans-serif; }
         .shell { width:min(1080px,calc(100% - 32px)); margin:34px auto; background:#fff; border:2px solid var(--line); box-shadow:14px 14px 0 var(--accent); }
         header { height:88px; padding:0 30px; border-bottom:2px solid var(--line); display:flex; justify-content:space-between; align-items:center; }
         .brand { display:flex; align-items:center; gap:12px; color:var(--ink); text-decoration:none; font:700 17px Georgia,serif; }.mark { width:40px;height:40px;border:2px solid var(--line);border-radius:50%;background:var(--accent-gradient);display:grid;place-items:center;font:800 12px Manrope,sans-serif; }

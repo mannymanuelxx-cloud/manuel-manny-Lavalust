@@ -13,7 +13,7 @@ $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
     <style>
         :root { --ink:#151515; --paper:#f4f4f4; --accent:#bdbdbd; --accent-dark:#444; --accent-gradient:linear-gradient(135deg,#ffffff 0%,#bdbdbd 52%,#555 100%); --muted:#666; --line:#242424; }
         * { box-sizing:border-box; }
-        body { margin:0; min-height:100vh; color:var(--ink); background:var(--paper); font-family:Manrope, sans-serif; }
+        body { margin:0; min-height:100vh; color:var(--ink); background:linear-gradient(135deg,#f8f8f8 0%,#d1d1d1 52%,#777 100%); font-family:Manrope, sans-serif; }
         body:before, body:after { content:""; position:fixed; border:1px solid var(--accent); border-radius:50%; pointer-events:none; }
         body:before { width:165px; height:165px; top:-65px; left:-48px; }
         body:after { width:145px; height:145px; right:-52px; bottom:-68px; background:#e1e1e1; }
