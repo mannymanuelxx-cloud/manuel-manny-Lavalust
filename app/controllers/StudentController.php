@@ -10,7 +10,7 @@ class StudentController extends Controller
             'name' => 'Sample Student',
             'course' => 'BS Information Technology',
             'year' => '3rd Year',
-            'section' => 'Section A',
+            'section' => '3-F4',
             'email' => 'student@example.com',
             'address' => 'City, Province',
             'contact' => '+63 900 000 0000',
