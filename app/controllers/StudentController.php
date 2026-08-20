@@ -13,7 +13,7 @@ class StudentController extends Controller
             'section' => '3-F4',
             'email' => 'mannymanuelxx@gmail.com',
             'address' => 'Sta Isabel, Calapan City',
-            'contact' => '=639660294493',
+            'contact' => '+63 966 029 4493',
             'about' => 'A curious technology student building useful things one thoughtful detail at a time.',
         ];
     }
