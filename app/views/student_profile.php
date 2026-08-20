@@ -1,6 +1,7 @@
 <?php
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
+$photo_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/assets/student-photo.jpg';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,12 +16,13 @@ $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
         * { box-sizing:border-box; } body { margin:0; min-height:100vh; color:var(--ink); background:linear-gradient(135deg,#f8f8f8 0%,#d1d1d1 52%,#777 100%); font-family:Manrope,sans-serif; }
         .shell { width:min(1080px,calc(100% - 32px)); margin:34px auto; background:#fff; border:2px solid var(--line); box-shadow:14px 14px 0 var(--accent); }
         header { height:88px; padding:0 30px; border-bottom:2px solid var(--line); display:flex; justify-content:space-between; align-items:center; }
-        .brand { display:flex; align-items:center; gap:12px; color:var(--ink); text-decoration:none; font:700 17px Georgia,serif; }.mark { width:40px;height:40px;border:2px solid var(--line);border-radius:50%;background:var(--accent-gradient);display:grid;place-items:center;font:800 12px Manrope,sans-serif; }
+        .brand { display:flex; align-items:center; gap:12px; color:var(--ink); text-decoration:none; font:700 17px Georgia,serif; }.mark { width:40px;height:40px;overflow:hidden;border:2px solid var(--line);border-radius:50%;background:var(--accent-gradient); }.mark img { width:100%;height:100%;display:block;object-fit:cover; }
         .back { color:var(--ink); border:1px solid var(--line); text-decoration:none; padding:10px 16px; font-size:13px; font-weight:800; }
         main { padding:70px; } h1 { margin:0 0 48px; font:400 64px/.95 "DM Serif Display",Georgia,serif; }
         .profile-grid { display:grid; grid-template-columns:245px 1fr; gap:46px; align-items:start; }
         .identity { padding:28px 24px; border:2px solid var(--line); box-shadow:9px 9px 0 #c8c8c8; }
-        .avatar { width:142px;height:142px;border-radius:50%;margin:0 auto 24px;border:2px solid var(--line);background:var(--accent-gradient);display:grid;place-items:center;font:400 52px "DM Serif Display",Georgia,serif; }
+        .avatar { width:142px;height:142px;overflow:hidden;border-radius:50%;margin:0 auto 24px;border:2px solid var(--line);background:var(--accent-gradient); }
+        .avatar img { width:100%;height:100%;display:block;object-fit:cover; }
         .identity h2 { margin:0 0 12px; font:400 25px/1.05 "DM Serif Display",Georgia,serif; }.identity p { margin:0; padding:10px 12px; background:var(--ink); color:#fff; font-size:11px; line-height:1.25; font-weight:800; letter-spacing:.08em; }
         .details { display:grid; grid-template-columns:1fr 1fr; gap:12px; }.detail { min-height:86px; padding:18px 20px; border:1px solid #d9d9d9; background:var(--soft); }.detail.wide { grid-column:1/-1; }.label { display:block; color:var(--muted); font-size:11px; font-weight:800; letter-spacing:.08em; margin-bottom:10px; }.value { font-size:16px; font-weight:800; overflow-wrap:anywhere; }.about { margin:25px 0 0; max-width:630px; color:var(--muted); font:17px/1.55 Georgia,serif; }
         @media (max-width:760px) { header { height:76px; padding:0 18px; }.brand { font-size:13px; }.back { padding:8px 11px; } main { padding:48px 28px 56px; } h1 { font-size:52px; margin-bottom:34px; }.profile-grid { grid-template-columns:1fr; gap:32px; }.identity { max-width:280px; }.details { grid-template-columns:1fr; }.detail.wide { grid-column:auto; } }
@@ -29,14 +31,14 @@ $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
 <body>
     <div class="shell">
         <header>
-            <a class="brand" href="<?= htmlspecialchars($student_url . '/student') ?>"><span class="mark">MSD</span> MANNY'S STUDENT DESK</a>
+            <a class="brand" href="<?= htmlspecialchars($student_url . '/student') ?>"><span class="mark"><img src="<?= htmlspecialchars($photo_url) ?>" alt=""></span> MANNY'S STUDENT DESK</a>
             <a class="back" href="<?= htmlspecialchars($student_url . '/student') ?>">Home</a>
         </header>
         <main>
             <h1>Student profile</h1>
             <div class="profile-grid">
                 <aside class="identity">
-                    <div class="avatar">S</div>
+                    <div class="avatar"><img src="<?= htmlspecialchars($photo_url) ?>" alt="Student photo"></div>
                     <h2><?= htmlspecialchars($student['name']) ?></h2>
                     <p><?= htmlspecialchars($student['course']) ?></p>
                 </aside>

@@ -1,6 +1,7 @@
 <?php
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
+$photo_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/assets/student-photo.jpg';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,8 @@ $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
         .shell { position:relative; width:min(1090px, calc(100% - 32px)); margin:38px auto; background:#fff; border:2px solid var(--line); box-shadow:14px 14px 0 var(--accent); }
         header { height:90px; display:flex; align-items:center; justify-content:space-between; padding:0 30px; border-bottom:2px solid var(--line); }
         .brand { display:flex; align-items:center; gap:12px; font-family:Georgia, serif; font-size:17px; font-weight:700; }
-        .mark { width:40px; height:40px; display:grid; place-items:center; border:2px solid var(--line); border-radius:50%; background:var(--accent-gradient); font-weight:800; font-size:12px; }
+        .mark { width:40px; height:40px; display:block; overflow:hidden; border:2px solid var(--line); border-radius:50%; background:var(--accent-gradient); }
+        .mark img { width:100%; height:100%; display:block; object-fit:cover; }
         .home-link, .profile-link { color:var(--ink); text-decoration:none; border:1px solid var(--line); padding:10px 18px; font-weight:800; font-size:13px; }
         main { display:grid; grid-template-columns:1.05fr .95fr; gap:72px; padding:80px 70px 72px; align-items:center; }
         .eyebrow { display:inline-block; padding:8px 12px; background:var(--accent-gradient); font-size:12px; letter-spacing:.12em; font-weight:800; }
@@ -41,7 +43,7 @@ $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
 <body>
     <div class="shell">
         <header>
-            <div class="brand"><span class="mark">MSD</span> MANNY'S STUDENT DESK</div>
+            <div class="brand"><span class="mark"><img src="<?= htmlspecialchars($photo_url) ?>" alt=""></span> MANNY'S STUDENT DESK</div>
             <a class="home-link" href="<?= htmlspecialchars($student_url . '/student') ?>">Home</a>
         </header>
         <main>
