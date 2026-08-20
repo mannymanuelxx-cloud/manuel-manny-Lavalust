@@ -24,7 +24,15 @@ class StudentController extends Controller
             session_start();
         }
 
-        $_SESSION['student_access'] = true;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $entered_name = trim($_POST['student_name'] ?? '');
+
+            if ($entered_name !== '') {
+                $_SESSION['student_access'] = true;
+                $_SESSION['student_name'] = $entered_name;
+            }
+        }
+
         $this->call->view('student_home', ['student' => $this->student_data()]);
     }
 

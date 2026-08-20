@@ -9,7 +9,7 @@ class StudentMiddleware
             session_start();
         }
 
-        if (empty($_SESSION['student_access'])) {
+        if (empty($_SESSION['student_access']) || empty($_SESSION['student_name'])) {
             redirect('student');
             return;
         }

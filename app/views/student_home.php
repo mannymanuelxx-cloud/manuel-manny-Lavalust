@@ -33,7 +33,8 @@ $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
         .access:before { content:"01"; position:absolute; top:-14px; right:16px; padding:6px 9px; color:#fff; background:var(--ink); font-size:12px; font-weight:800; }
         h2 { font-size:34px; margin:0 0 14px; }
         .access p { color:var(--muted); font-family:Georgia, serif; line-height:1.5; margin:0 0 26px; }
-        .open { display:block; width:100%; padding:16px; color:var(--ink); background:var(--accent-gradient); border:2px solid var(--line); text-align:center; text-decoration:none; font-weight:800; }
+        .name-input { width:100%; padding:15px; margin-bottom:13px; color:var(--ink); background:#fff; border:1px solid var(--line); font:600 14px Manrope, sans-serif; }
+        .open { display:block; width:100%; padding:16px; color:var(--ink); background:var(--accent-gradient); border:2px solid var(--line); text-align:center; text-decoration:none; font-weight:800; cursor:pointer; }
         @media (max-width:760px) { .shell { margin:18px auto; } header { padding:0 18px; height:76px; } .brand { font-size:13px; } .home-link { padding:8px 12px; } main { grid-template-columns:1fr; gap:45px; padding:54px 28px 60px; } h1 { font-size:61px; } }
     </style>
 </head>
@@ -52,8 +53,11 @@ $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
             </section>
             <section class="access">
                 <h2>Profile access</h2>
-                <p>Your student space is ready. Open the full profile to view the information held by this page.</p>
-                <a class="open" href="<?= htmlspecialchars($student_url . '/student/profile') ?>">Open student profile</a>
+                <p>Enter any name to continue to the student profile.</p>
+                <form method="post" action="<?= htmlspecialchars($student_url . '/student') ?>">
+                    <input class="name-input" type="text" name="student_name" placeholder="Enter your name" aria-label="Enter your name" required>
+                    <button class="open" type="submit">Open student profile</button>
+                </form>
             </section>
         </main>
     </div>
