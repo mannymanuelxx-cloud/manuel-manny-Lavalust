@@ -40,7 +40,7 @@ $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
 <body>
     <div class="shell">
         <header>
-            <a class="brand" href="<?= htmlspecialchars($student_url . '/student') ?>"><span class="mark">MSD</span> MANNY'S STUDENT DESK</a>
+            <div class="brand"><span class="mark">MSD</span> MANNY'S STUDENT DESK</div>
             <a class="home-link" href="<?= htmlspecialchars($student_url . '/student') ?>">Home</a>
         </header>
         <main>
