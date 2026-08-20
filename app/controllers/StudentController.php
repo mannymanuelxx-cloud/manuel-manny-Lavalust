@@ -6,14 +6,14 @@ class StudentController extends Controller
     private function student_data()
     {
         return [
-            'student_id' => 'STU-0000',
-            'name' => 'Sample Student',
+            'student_id' => 'MCC2024-00159',
+            'name' => 'Manuel, Manny',
             'course' => 'BS Information Technology',
             'year' => '3rd Year',
             'section' => '3-F4',
-            'email' => 'student@example.com',
-            'address' => 'City, Province',
-            'contact' => '+63 900 000 0000',
+            'email' => 'mannymanuelxx@gmail.com',
+            'address' => 'Sta Isabel, Calapan City',
+            'contact' => '=639660294493',
             'about' => 'A curious technology student building useful things one thoughtful detail at a time.',
         ];
     }

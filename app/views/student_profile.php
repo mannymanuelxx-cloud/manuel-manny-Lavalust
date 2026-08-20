@@ -7,7 +7,7 @@ $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Desk | Profile</title>
+    <title>Manny's Student Desk | Profile</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -29,7 +29,7 @@ $student_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
 <body>
     <div class="shell">
         <header>
-            <a class="brand" href="<?= htmlspecialchars($student_url . '/student') ?>"><span class="mark">SD</span> STUDENT DESK</a>
+            <a class="brand" href="<?= htmlspecialchars($student_url . '/student') ?>"><span class="mark">MSD</span> MANNY'S STUDENT DESK</a>
             <a class="back" href="<?= htmlspecialchars($student_url . '/student') ?>">Home</a>
         </header>
         <main>
