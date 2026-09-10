@@ -9,6 +9,24 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 class ProductController extends Controller
 {
     /**
+     * Ensure a fresh deployment has the table required by this feature.
+     * The statement is idempotent, so it is safe after the table exists.
+     */
+    public function before_action()
+    {
+        $this->db->raw(
+            'CREATE TABLE IF NOT EXISTS products (
+                id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                product_name VARCHAR(255) NOT NULL,
+                description TEXT NULL,
+                price DECIMAL(10,2) NOT NULL,
+                quantity INT UNSIGNED NOT NULL DEFAULT 0,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )'
+        );
+    }
+
+    /**
      * Display all products (READ)
      */
     public function index()
