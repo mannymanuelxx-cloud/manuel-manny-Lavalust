@@ -44,7 +44,8 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 /** @var object $router **/
 
-$router->get('/', 'Welcome::index');
+// Make the product management application the home page.
+$router->get('/', 'ProductController::index');
 
 $router->get('/student', 'StudentController::index');
 $router->post('/student', 'StudentController::index');
