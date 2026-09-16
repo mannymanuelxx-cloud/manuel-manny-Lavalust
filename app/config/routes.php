@@ -60,9 +60,9 @@ $router->get('/logout', 'AuthController::logout');
 // Product routes (more specific routes first)
 $router->post('/products/store', 'ProductController::store');
 $router->get('/products/create', 'ProductController::create');
-$router->post('/products/update/:id', 'ProductController::update');
-$router->get('/products/edit/:id', 'ProductController::edit');
-$router->get('/products/delete/:id', 'ProductController::delete');
+$router->post('/products/update/{id}', 'ProductController::update');
+$router->get('/products/edit/{id}', 'ProductController::edit');
+$router->get('/products/delete/{id}', 'ProductController::delete');
 $router->get('/products', 'ProductController::index');
 
 $router->group(['middleware' => 'student_access'], function ($router) {
