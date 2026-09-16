@@ -91,7 +91,18 @@ $request_url = isset($_SERVER['HTTP_HOST'])
     ? ($is_https ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST']
     : 'http://localhost/LavaLust/public';
 
-$config['base_url'] 				= getenv('APP_URL') ?: $request_url;
+// A stale localhost APP_URL must never be used for a public request. This
+// happens when a local .env file is copied to the deployment environment.
+$configured_url = rtrim((string) (getenv('APP_URL') ?: ''), '/');
+$configured_host = $configured_url ? (string) parse_url($configured_url, PHP_URL_HOST) : '';
+$request_host = (string) ($_SERVER['HTTP_HOST'] ?? '');
+$is_local_configured_url = in_array(strtolower($configured_host), ['localhost', '127.0.0.1', '::1'], true);
+$is_public_request = $request_host !== ''
+    && !in_array(strtolower(preg_replace('/:\\d+$/', '', $request_host)), ['localhost', '127.0.0.1', '::1'], true);
+
+$config['base_url'] = ($configured_url && !($is_local_configured_url && $is_public_request))
+    ? $configured_url
+    : $request_url;
 
 /*
 |--------------------------------------------------------------------------
