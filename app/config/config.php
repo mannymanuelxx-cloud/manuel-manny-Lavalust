@@ -79,7 +79,19 @@ $config['environment'] = getenv('APP_ENV') ?: 'development';
 | WARNING: You MUST set this value!
 |
 */
-$config['base_url'] 				= getenv('APP_URL') ?: 'http://localhost/LavaLust/public';
+/*
+| Use APP_URL when it is configured.  Otherwise build the URL from the
+| current request so deployed links (login and all CRUD actions) do not
+| point back to localhost.
+*/
+$forwarded_protocol = explode(',', $_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')[0] ?? '';
+$is_https = $forwarded_protocol === 'https'
+    || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
+$request_url = isset($_SERVER['HTTP_HOST'])
+    ? ($is_https ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST']
+    : 'http://localhost/LavaLust/public';
+
+$config['base_url'] 				= getenv('APP_URL') ?: $request_url;
 
 /*
 |--------------------------------------------------------------------------
